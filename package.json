@@ -1,0 +1,26 @@
+{
+  "name": "sev-business-lunch-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot offers you business luches at Sevastopol",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon src/main.js --watch src --exec babel-node --presets es2015,stage-2",
+    "dev": "babel-node-debug src/main.js --presets es2015,stage-2",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lev Khrushchev",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.22.0",
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-2": "^6.11.0",
+    "babel-register": "^6.11.6"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "form-data": "^2.3.2",
+    "moment": "^2.22.0",
+    "winston": "^2.4.1"
+  }
+}
