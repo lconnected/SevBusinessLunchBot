@@ -1,8 +1,8 @@
+import 'babel-polyfill';
 import http from 'http';
 import events from 'events';
 import log from 'winston';
 import botClient from './BotClient/botClient';
-import messageHistory from './BotClient/messageHistory';
 
 const port = 8079;
 const updateInterval = 7000;
@@ -46,7 +46,11 @@ function upServer() {
   console.log('Http server started at port ' + port);
 }
 
-function updateLoop(offset = messageHistory.getLastUpdateId()) {
+/**
+ * Loops the update request via long polling
+ * @param {integer} offset 
+ */
+function updateLoop(offset = 0) {
   log.info(`Initial update offset is ${offset}`);
   botClient.getUpdates(offset)
     .then(response => { 

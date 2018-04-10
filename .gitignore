@@ -58,4 +58,7 @@ typings/
 .env
 
 # auth key
-config/*
+config/
+
+# build directory
+dist/
