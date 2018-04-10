@@ -5,9 +5,9 @@
   "main": "main.js",
   "scripts": {
     "dev": "nodemon src/main.js --watch src --exec babel-node --presets es2015",
+    "prod": "pm2 start dist/main.wrapper.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp build",
-    "run": "pm2 start dist/main.wrapper.js"
+    "build": "gulp build"
   },
   "author": "Lev Khrushchev",
   "license": "ISC",
