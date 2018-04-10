@@ -58,4 +58,4 @@ typings/
 .env
 
 # auth key
-config
+config/*
