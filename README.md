@@ -4,6 +4,7 @@ Telegram bot provides info about business lunches at the Sevastopol's city cente
 ## Development
 To run app with live reload use
 - `npm i`
+- `npm i -g nodemon`
 - `npm run dev`
 
 ## Production
