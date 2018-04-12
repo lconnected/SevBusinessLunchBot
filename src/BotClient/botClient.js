@@ -134,6 +134,9 @@ export default {
      * @param {*} updateEntity response object from API
      */
     _resolve(updateEntity) {
+        if (updateEntity.message.text == undefined) {
+            return;
+        }
         let commandName = updateEntity.message.text.substr(1);
         log.info(commandName);
         let resolved = botCommands[commandName];
