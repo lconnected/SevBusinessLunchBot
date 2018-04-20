@@ -4,7 +4,7 @@ import events from 'events';
 import log from 'winston';
 import botClient from './BotClient/botClient';
 
-const port = 8079;
+const port = process.env.PORT || 8079;
 const updateInterval = 7000;
 const emitter = new events.EventEmitter();
 

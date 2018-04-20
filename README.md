@@ -22,3 +22,4 @@ Use `npm run prod` to run application via `pm2`.
 Application requires two pre-defined environment variables
   - `S_BOT_ID` - bot identifier
   - `S_BOT_TOKEN` - bot secret token
+  - `PORT` - bot greetings page port
