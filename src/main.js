@@ -24,7 +24,7 @@ botClient.authBot()
   });
 
 emitter.on('successStartup', function() {
-  // upServer();
+  upServer();
   updateLoop();
 });
 
@@ -35,7 +35,7 @@ emitter.on('failedStartup', function() {
 function upServer() {
   http.createServer(function (req, res) {
     if (req.method == 'GET' && req.url == '/') {
-      res.write('Hello');
+      res.write('Hello from <a href="https://t.me/SevBusinessLunchBot">SevBusinessLunchBot</a>');
     }
     else {
       res.write('Page not found');
