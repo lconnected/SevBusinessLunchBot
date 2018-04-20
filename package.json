@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/main.js --watch src --exec babel-node --presets env",
     "prod": "pm2 start dist/main.wrapper.js",
-    "start": "node dist/main.wrapper.js",
+    "start": "gulp build && node dist/main.wrapper.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp build"
   },
