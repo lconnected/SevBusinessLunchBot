@@ -4,7 +4,11 @@ import moment from 'moment';
 import fs from 'fs';
 import FormData from 'form-data';
 
-const apiKey = JSON.parse(fs.readFileSync('./config/auth_key.json'));
+const apiKeyDefault = JSON.parse(fs.readFileSync('./config/auth_key.json'));
+const apiKey = {
+    id: process.env.S_BOT_ID != undefined ? process.env.S_BOT_ID : apiKeyDefault.id,
+    token: process.env.S_BOT_TOKEN != undefined ? process.env.S_BOT_TOKEN : apiKeyDefault.id,
+}
 const apiUrl = `https://api.telegram.org/bot${apiKey.id}:${apiKey.token}`;
 const apiFunctions = {
     auth: `${apiUrl}/getMe`,

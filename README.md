@@ -15,4 +15,10 @@ Make sure `gulp` and `pm2` packages are installed globally.
 Then install all the required packages with `npm i`  
   
 Use `npm run build` or `gulp build` to build this app from es6 based sources to instant es5 - compitable application.
+Use `npm start` to run application via `node`
 Use `npm run prod` to run application via `pm2`.
+
+### Environment
+Application requires two pre-defined environment variables
+  - `S_BOT_ID` - bot identifier
+  - `S_BOT_TOKEN` - bot secret token
