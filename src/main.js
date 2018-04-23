@@ -1,10 +1,12 @@
 import 'babel-polyfill';
 import http from 'http';
+import axios from 'axios';
 import events from 'events';
 import log from 'winston';
 import botClient from './BotClient/botClient';
 
 const port = process.env.PORT || 8079;
+const pingInterval = 90000; // in millis
 const updateInterval = 7000;
 const emitter = new events.EventEmitter();
 
@@ -26,6 +28,17 @@ botClient.authBot()
 emitter.on('successStartup', function() {
   upServer();
   updateLoop();
+  // self ping job
+  setInterval(async function() {
+    let aliveRequest = axios.get(`http://127.0.0.1:${port}/alive`)
+        .then(function(response) {
+          log.info(response.data);
+        })
+        .catch(function(error) {
+          log.error(error);
+        });
+    await aliveRequest;
+  }, pingInterval);
 });
 
 emitter.on('failedStartup', function() {
@@ -36,8 +49,9 @@ function upServer() {
   http.createServer(function (req, res) {
     if (req.method == 'GET' && req.url == '/') {
       res.write('Hello from <a href="https://t.me/SevBusinessLunchBot">SevBusinessLunchBot</a>');
-    }
-    else {
+    } else if (req.method == 'GET' && req.url == '/alive') {
+      res.write('bot is alive');
+    } else {
       res.write('Page not found');
       res.statusCode = 404;
     }
